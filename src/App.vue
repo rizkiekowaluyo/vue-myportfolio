@@ -1,31 +1,101 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <div class="wrapper">
+
+      <div class="bg-image">
+        <div class="header">
+          <div class="heading">My Portfolio</div>
+          <div class="subheading">UI Designer | Editor</div>
+        </div>
+      </div>
+
+      <div class="container">
+
+        <div class="mobile-nav">
+          <div class="nav-link">
+            <router-link to="/" @click.native="navigate()">
+              <div class="nav-button"></div>
+            </router-link>
+            <div class="nav-link-text">About</div>
+          </div>
+          <div class="nav-link">
+            <router-link to="/resume" @click.native="navigate()">
+              <div class="nav-button"></div>
+            </router-link>
+            <div class="nav-link-text">Resume</div>
+          </div>
+          <div class="nav-link">
+            <router-link to="/portfolio" @click.native="navigate(true)">
+              <div class="nav-button"></div>
+            </router-link>
+            <div class="nav-link-text">Portfolio</div>
+          </div>
+          <div class="nav-link">
+            <router-link to="/contact" @click.native="navigate()">
+              <div class="nav-button"></div>
+            </router-link>
+            <div class="nav-link-text">Contact</div>
+          </div>
+        </div>
+        
+        <router-view/>
+      
+        <div class="nav">
+          <div class="nav-link">
+            <router-link to="/" @click.native="navigate()">
+              <div class="nav-button"></div>
+            </router-link>
+            <div class="nav-link-text">About</div>
+          </div>
+          <div class="nav-link">
+            <router-link to="/resume" @click.native="navigate()">
+              <div class="nav-button"></div>
+            </router-link>
+            <div class="nav-link-text">Resume</div>
+          </div>
+          <div class="nav-link">
+            <router-link to="/portfolio" @click.native="navigate(true)">
+              <div class="nav-button"></div>
+            </router-link>
+            <div class="nav-link-text">Portfolio</div>
+          </div>
+          <div class="nav-link">
+            <router-link to="/contact" @click.native="navigate()">
+              <div class="nav-button"></div>
+            </router-link>
+            <div class="nav-link-text">Contact</div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+<script type="text/javascript">
+  (function(){
+    var redirect = sessionStorage.redirect
+    delete sessionStorage.redirect
+    if (redirect && redirect != location.href) {
+      history.replaceState(null, null, redirect)
+    }
+  })()
+  export default {
+    methods: {
+      navigate: function(e) {
+        let container = document.getElementsByClassName('container')[0]
+        if (e == true && !container.className.includes('embiggen')) {
+          container.className += ' embiggen'
+        } else {
+          container.className = container.className.replace(/\bembiggen\b/g, '')
+        }
+      }
+    }
+  }
+</script>
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+<style lang="scss">
+  @import "./assets/global";
 </style>
