@@ -19,7 +19,7 @@
     </p>
     <p>
       <i class="fab fa-instagram"></i>
-      <a href="#" target="_blank">Instagram</a>
+      <a href="https://www.instagram.com/rizkiiekow/" target="_blank">Instagram</a>
     </p>
     <p>
       <i class="fab fa-dribbble"></i>
