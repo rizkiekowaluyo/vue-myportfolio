@@ -27,7 +27,7 @@
             <div class="nav-link-text">Resume</div>
           </div>
           <div class="nav-link">
-            <router-link to="/portfolio" @click.native="navigate(true)">
+            <router-link to="/portfolio" @click.native="navigate()">
               <div class="nav-button"></div>
             </router-link>
             <div class="nav-link-text">Portfolio</div>
@@ -56,7 +56,7 @@
             <div class="nav-link-text">Resume</div>
           </div>
           <div class="nav-link">
-            <router-link to="/portfolio" @click.native="navigate(true)">
+            <router-link to="/portfolio" @click.native="navigate()">
               <div class="nav-button"></div>
             </router-link>
             <div class="nav-link-text">Portfolio</div>
